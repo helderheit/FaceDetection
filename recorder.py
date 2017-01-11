@@ -20,9 +20,9 @@ class VideoCamera(object):
 
 
         face_cascade = cv2.CascadeClassifier(
-            'C:/Users/Felix Albrecht/Downloads/opencv/build/etc/haarcascades/haarcascade_frontalface_default.xml')
+            'haarcascades/haarcascade_frontalface_default.xml')
         eye_cascade = cv2.CascadeClassifier(
-            'C:/Users/Felix Albrecht/Downloads/opencv/build/etc/haarcascades/haarcascade_eye.xml')
+            'haarcascades/haarcascade_eye.xml')
 
 
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -39,4 +39,3 @@ class VideoCamera(object):
 
         ret, jpeg = cv2.imencode('.jpg', image, [0])
         return jpeg.tobytes()
-
