@@ -23,14 +23,7 @@ def process_image(image):
         eyes = eye_cascade.detectMultiScale(roi_gray, 1.3)
         for (ex, ey, ew, eh) in eyes:
             cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
+        #call masks here
 
+    #call filters here
     return image
-
-
-
-
-
-
-
-
-
