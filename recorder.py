@@ -21,6 +21,3 @@ class VideoCamera(object):
 
         ret, jpeg = cv2.imencode('.jpg', image, [0])
         return jpeg.tobytes()
-
-
-

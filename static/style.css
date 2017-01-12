@@ -1,0 +1,13 @@
+body{
+  background-color: #333344;
+}
+
+img.fullscreen{
+    position:fixed;
+    top: -10%;
+    left:0;
+    width:100%;
+
+
+
+}
