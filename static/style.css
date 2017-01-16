@@ -1,13 +1,42 @@
 body{
-  background-color: #333344;
+   background-color: #333344;
+   background-image: url(example.JPG);
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+
+   font-size:20;
 }
 
-img.fullscreen{
-    position:fixed;
-    top: -10%;
-    left:0;
-    width:100%;
+div.topbar{
+  position: fixed;
+  top:1em;
+  left:0;
 
+  width:100%;
+  height:3em;
 
+}
+
+div.bottombar{
+
+  position: fixed;
+  bottom:1em;
+  left:0;
+
+  width:100%;
+  height:3em;
+
+}
+
+button.largeButton{
+  float:right;
+  width:6em;
+  height: 2.5em;
+
+  padding:0.5em;
+
+}
 
 }
