@@ -22,21 +22,186 @@ div.topbar{
 div.bottombar{
 
   position: fixed;
-  bottom:1em;
+  bottom:2em;
   left:0;
 
   width:100%;
-  height:3em;
+
 
 }
 
-button.largeButton{
+button.largeButton {
+
+
+    margin: 0.5em 0.5em;
+    float:right;
+  	background-color: #444444;
+  	background-image: -webkit-linear-gradient(top,#444444,#333333);
+  	background-image: -moz-linear-gradient(top,#444444,#333333);
+  	background-image: -ms-linear-gradient(top,#444444,#333333);
+  	background-image: -o-linear-gradient(top,#444444,#333333);
+  	background-image: linear-gradient(top,#444444,#333333);
+
+  	font-family:arial;
+  	font-size:1em;
+  	border: 1px solid #444444;
+  	-webkit-border-radius: 2px;
+  	-moz-border-radius: 2px;
+  	border-radius: 2px;
+
+  	cursor: pointer;
+
+
+  	text-align: center;
+
+    width: 7em;
+
+  	padding: 0.5em 1.5em;
+  	text-decoration: none;
+  	color:#eeeeee;
+
+
+  }
+ button.largeButton:hover {
+
+  	background-color: #404040;
+  	background-image: -webkit-linear-gradient(top,#404040,#333333);
+  	background-image: -moz-linear-gradient(top,#404040,#333333);
+  	background-image: -ms-linear-gradient(top,#404040,#333333);
+  	background-image: -o-linear-gradient(top,#404040,#333333);
+  	background-image: linear-gradient(top,#404040,#333333);
+
+  	border: 1px solid #404040;
+
+
+  	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.2);
+  	-moz-box-shadow: 0px 1px 1px rgba(0,0,0,.2);
+  	box-shadow: 0px 1px 1px rgba(0,0,0,.2);
+  	color:#ffffff;
+  }
+
+
+.onclick-menu {
+
+
+
+  margin: 1em 1em;
+  padding:0.5em 1.5em;
   float:right;
-  width:6em;
-  height: 2.5em;
+  background-color: #444444;
+  background-image: -webkit-linear-gradient(top,#444444,#333333);
+  background-image: -moz-linear-gradient(top,#444444,#333333);
+  background-image: -ms-linear-gradient(top,#444444,#333333);
+  background-image: -o-linear-gradient(top,#444444,#333333);
+  background-image: linear-gradient(top,#444444,#333333);
 
-  padding:0.5em;
+  font-family:arial;
+  font-size:1em;
+  border: 1px solid #444444;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+
+  cursor: pointer;
+
+
+  text-align: center;
+    position: relative;
+
+
+  }
+.onclick-menu:hover {
+
+
+
+    background-color: #404040;
+    background-image: -webkit-linear-gradient(top,#404040,#333333);
+    background-image: -moz-linear-gradient(top,#404040,#333333);
+    background-image: -ms-linear-gradient(top,#404040,#333333);
+    background-image: -o-linear-gradient(top,#404040,#333333);
+    background-image: linear-gradient(top,#404040,#333333);
+
+    border: 1px solid #404040;
+
+
+    -webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.2);
+    -moz-box-shadow: 0px 1px 1px rgba(0,0,0,.2);
+    box-shadow: 0px 1px 1px rgba(0,0,0,.2);
+    color:#ffffff;
 
 }
+
+.onclick-menu:focus {
+    /* clicking on label should toggle the menu */
+    pointer-events: none;
+}
+.onclick-menu:focus .onclick-menu-content {
+    /*  opacity is 1 in opened state (see below) */
+    opacity: 1;
+    visibility: visible;
+
+    /* don't let pointer-events affect descendant elements */
+    pointer-events: auto;
+}
+.onclick-menu-content {
+
+  position:absolute;
+	list-style:none;
+	text-align:center;
+	width:15em;
+	left:.5em;
+	margin-left:-12em;
+	bottom:2.2em;
+	font:bold 1em 'Open Sans Condensed', sans-serif;
+
+
+
+    position: absolute;
+    z-index: 1;
+
+    /* use opacity to fake immediate toggle */
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.5s;
+}
+
+.onclick-menu  ul li{
+	background-color:#313131;
+}
+
+.onclick-menu  ul li a{
+	padding:12px;
+	color:#fff !important;
+	text-decoration:none !important;
+	display:block;
+  background-color:#313131;
+}
+
+
+
+.onclick-menu  ul li:hover{
+	background-color:#444;
+}
+
+.onclick-menu  ul li:last-child{
+	border-radius:0 0 3px 3px;
+  background-color:#313131;
+	position:relative;
+}
+
+.onclick-menu  ul li:last-child:after{ /* the pointer tip */
+	content:'';
+	position:absolute;
+	width:1px;
+	height:1px;
+	border:.5em solid transparent;
+	border-top-color:#313131;
+	right:2.5em;
+	bottom:-1em;
+	margin-left:-5px;
+}
+
+.onclick-menu  ul li:first-child{
+  border-radius:3px 3px 0 0;
 
 }
