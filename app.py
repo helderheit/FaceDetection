@@ -1,4 +1,6 @@
 from flask import Flask, render_template, Response, redirect
+
+from filters import masks
 from recorder import VideoCamera
 import cv2
 app = Flask(__name__)
@@ -24,4 +26,6 @@ def video_feed():
 
 
 if __name__ == '__main__':
+  #Maskenparameter initialisieren
+  masks.initialise_masks()
   app.run(port = 3000, debug=True)
