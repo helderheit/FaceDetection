@@ -21,6 +21,14 @@ tupel (x,y,w,h) eye2: Das rechte Auge, x,y,w,h equivalent zum Gesicht
 
 Die Funktionen geben jeweils ein OpenCV Bild zurück das den angewendeten Filter
 beeinhaltet.
+
+
++++WICHTIG+++
+Im Docstring finden sich der im User-Interface angezeigte Name der Funktion sowie der Dateiname(mit Endung) des
+Vorschaubildes, durch Komma getrennt. Filter ohne Docstring werden nicht dargestellt.
+
+
+
 """
 import math
 
@@ -111,6 +119,9 @@ Brillen
 
 
 def mask_glasses(image, x, y, w, h, eye1, eye2, *args):
+    """Brille, Brille, glasses1.png
+    Brille2, Sonnenbrille, glasses2.png
+    """
     centerx = x + w / 2
     centery = y + h / 2
 
