@@ -44,14 +44,17 @@ def initialise_web_app():
     for function in dir(filters):
         if 'filter_' in function:
 
-
             docstring = getattr(filters, function).__doc__
             if docstring is not None:
+                lines = docstring.split('\n')
 
-                name = docstring.split(',')[0]
-                filename = docstring.split(',')[1].replace(' ', '')
-                filter_list[function] = [name, filename]
-
+                for line in lines:
+                    line = line.replace('\t', '').replace(' ', '')
+                    if line != '':
+                        parameter = line.split(',')[0].replace(' ', '')
+                        name = line.split(',')[1].replace(' ', '')
+                        filename = line.split(',')[2].replace(' ', '')
+                        filter_list[function + ':' + parameter] = [function, parameter, name, filename]
 
     for function in dir(masks):
         if 'mask_' in function:
@@ -70,7 +73,8 @@ def initialise_web_app():
                         filename = line.split(',')[2].replace(' ', '')
                         mask_list[function+':'+parameter] = [function, parameter, name, filename]
 
-    print mask_list
+
+
 
 
 

@@ -24,7 +24,7 @@ beeinhaltet.
 
 
 +++WICHTIG+++
-Im Docstring finden sich der im User-Interface angezeigte Name der Funktion sowie der Dateiname(mit Endung) des
+Im Docstring finden sich zeileweise jeweils ein möglicher Parameter, der im User-Interface angezeigte Name der Funktion sowie der Dateiname(mit Endung) des
 Vorschaubildes, durch Komma getrennt. Filter ohne Docstring werden nicht dargestellt.
 
 
@@ -66,6 +66,7 @@ Augenmittelpunkte markiert
 
 
 def mask_debug(image, x, y, w, h, eye1, eye2, *args):
+    """, Debug, debug.png"""
     cv2.rectangle(image, (x, y), (x + w, y + h), (255, 0, 0), 2)
 
     e1x, e1y, e1w, e1h = eye1
@@ -93,6 +94,7 @@ Schwarze Balken vor den Augen
 
 
 def mask_censor_bar(image, x, y, w, h, eye1, eye2, *args):
+    """, Balken, censorbar.png"""
     centerx = x + w / 2
     centery = y + h / 2
 
