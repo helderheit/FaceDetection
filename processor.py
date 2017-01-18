@@ -10,7 +10,6 @@ def process_image(image):
     #image = detect_faces(image)
 
     #Filteraufruf hier
-    image = filters.filter_split(image)
     return image
 
 
