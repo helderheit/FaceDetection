@@ -7,6 +7,8 @@ body{
    background-size: cover;
 
    font-size:20;
+   font-family: 'Roboto', sans-serif;
+
 }
 
 div.topbar{
@@ -53,7 +55,7 @@ div.bottombar{
   background-image: -o-linear-gradient(top,#2AA385,#0A9A76);
   background-image: linear-gradient(top,#2AA385,#0A9A76);
 
-  font-family:arial;
+
   font-size:1em;
   border: 1px solid #2AA385;
   -webkit-border-radius: 2px;
@@ -111,7 +113,7 @@ div.bottombar{
 
 	margin-left:-15em;
 	bottom:2.2em;
-	font:bold 1em 'Open Sans Condensed', sans-serif;
+
 
 
 
