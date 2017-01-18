@@ -138,7 +138,7 @@ def mask_glasses(image, x, y, w, h, eye1, eye2, *args):
 
     #Overlay-Bild skalieren, rotieren undpositionieren
     eye_distance = math.sqrt(math.pow(e2centerx -e1centerx, 2) + math.pow(e2centery - e1centery,2))
-    glasses_distance = glasses_eye_right_x -glasses_eye_left_x
+    glasses_distance = glasses_eye_right_x - glasses_eye_left_x
     scale_factor =  eye_distance/(1.0*glasses_distance)
 
     # Skalieren http://stackoverflow.com/questions/4195453/how-to-resize-an-image-with-opencv2-0-and-python2-6
@@ -161,7 +161,7 @@ def mask_glasses(image, x, y, w, h, eye1, eye2, *args):
     glasses_center_x = int(glasses_eye_left_x + (glasses_eye_right_x-glasses_eye_left_x)/2.0)*scale_factor
     glasses_center_y = int(glasses_eye_left_y + (glasses_eye_right_y - glasses_eye_left_y) / 2.0)*scale_factor
 
-    x_offset = int(center_eyes_x-glasses_center_x)
+    x_offset = int(center_eyes_x- glasses_center_x)
     y_offset = int(center_eyes_y - glasses_center_y)
 
     # Code for Alpha-Overlay: http://stackoverflow.com/questions/14063070/overlay-a-smaller-image-on-a-larger-image-python-opencv
