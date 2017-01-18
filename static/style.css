@@ -11,7 +11,7 @@ body{
 
 div.topbar{
   position: fixed;
-  top:1em;
+  top:0.25em;
   left:0;
 
   width:100%;
@@ -22,7 +22,7 @@ div.topbar{
 div.bottombar{
 
   position: fixed;
-  bottom:1em;
+  bottom:0.25em;
   left:0;
 
   width:100%;
@@ -39,7 +39,7 @@ div.bottombar{
 
   opacity:0.8;
 
-  margin: 1em 1em;
+  margin: 1em 0.5em;
   padding:1.5em 1em;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
@@ -185,7 +185,24 @@ div.bottombar{
   z-index:100;
   padding:0.2em;
   margin-top:0.2em;
+  margin-left: 0.1em;
 
+}
+
+
+.menu-item{
+  position: relative;
+  width:5.4em;
+  height:6em;
+  float:left;
+
+  z-index:100;
+  padding:0.2em;
+  margin-top:0.2em;
+
+}
+.menu-item:hover{
+  background-color: #888888;
 }
 
 
