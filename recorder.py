@@ -14,7 +14,7 @@ class VideoCamera(object):
     def __del__(self):
         self.video.release()
 
-    def get_frame(self, black):
+    def get_frame(self):
         success, image = self.video.read()
 
         image = processor.process_image(image)
