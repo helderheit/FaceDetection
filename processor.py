@@ -62,6 +62,6 @@ def detect_faces(image):
 
 
             #Maskenaufruf hier
-            image = masks.mask_debug(image, x,y,w,h, eyeCoordinates[0], eyeCoordinates[1])
+            image = masks.mask_glasses(image, x,y,w,h, eyeCoordinates[0], eyeCoordinates[1],'Brille2')
 
     return image

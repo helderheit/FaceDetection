@@ -87,4 +87,4 @@ if __name__ == '__main__':
   masks.initialise_masks()
   #Webapp initialisieren
   initialise_web_app()
-  app.run(port = 3000, debug=True)
+  app.run(port = 3000, host = 'localhost',debug=True)

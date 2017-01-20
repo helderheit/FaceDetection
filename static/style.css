@@ -37,15 +37,12 @@ div.bottombar{
 
 }
 
-.onclick-menu {
-
+.buttonstyle{
   opacity:0.8;
-
   margin: 1em 0.5em;
   padding:1.5em 1em;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
-
 
   float:right;
   background-color: #2AA385;
@@ -54,7 +51,6 @@ div.bottombar{
   background-image: -ms-linear-gradient(top,#2AA385,#0A9A76);
   background-image: -o-linear-gradient(top,#2AA385,#0A9A76);
   background-image: linear-gradient(top,#2AA385,#0A9A76);
-
 
   font-size:1em;
   border: 1px solid #2AA385;
@@ -66,11 +62,11 @@ div.bottombar{
 
 
   text-align: center;
-    position: relative;
+  position: relative;
 
+}
 
-  }
-.onclick-menu:hover {
+.buttonstyle:hover {
 
     opacity:1;
 
@@ -90,6 +86,10 @@ div.bottombar{
 
 
 }
+
+.onclick-menu {
+  }
+
 
 .onclick-menu:focus {
     /* clicking on label should toggle the menu */
@@ -125,6 +125,8 @@ div.bottombar{
     visibility: hidden;
     transition: opacity 0.5s;
 }
+
+
 
 .onclick-menu  ul li{
 	background-color:#F1F1F1;
@@ -171,6 +173,88 @@ div.bottombar{
 
 
 }
+
+/**Dropdown*/
+
+.onclick-menu-top {
+  }
+.onclick-menu-top:focus {
+    /* clicking on label should toggle the menu */
+    pointer-events: none;
+}
+.onclick-menu-top:focus .onclick-menu-content-top {
+    /*  opacity is 1 in opened state (see below) */
+    opacity: 1;
+    visibility: visible;
+
+    /* don't let pointer-events affect descendant elements */
+    pointer-events: auto;
+}
+.onclick-menu-content-top {
+
+  position:absolute;
+	list-style:none;
+	text-align:center;
+	width:12em;
+
+
+	margin-left:-10em;
+	top:2.2em;
+
+
+
+
+    position: absolute;
+    z-index: 1;
+
+    /* use opacity to fake immediate toggle */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s;
+}
+
+
+
+.onclick-menu-top  ul li{
+	background-color:#F1F1F1;
+  padding:0.1em;
+}
+
+
+
+
+.onclick-menu-top ul li:hover{
+
+}
+
+.onclick-menu-top ul li:first-child{
+	border-radius:0.2em 0.2em 0 0;
+  background-color:#F1F1F1;
+  position:relative;
+
+}
+
+.onclick-menu-top ul li:first-child::before{ /* the pointer tip */
+
+	content:'';
+	position:absolute;
+	width:1px;
+	height:1px;
+	border:.5em solid transparent;
+	border-bottom-color:#F1F1F1;
+	right:2.5em;
+	top:-1em;
+	margin-left:-5px;
+}
+
+.onclick-menu-top ul li:last-child{
+  border-radius:0 0 0.2em 0.2em ;
+
+
+}
+
+
+
 
 .menu-space{
 
