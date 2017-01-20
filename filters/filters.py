@@ -56,3 +56,16 @@ def filter_germany(image, * args):
     cv2.rectangle(blank_image, (0, height_2), (width, height), (0, 255, 255), -1, 8, 0)
     result = cv2.addWeighted(image, 0.5, blank_image, 0.5, 0)
     return result
+
+def filter_frame(image):
+	height, width = image.shape[:2]
+	h10 = height/10
+	w10 = width/10
+	newImage = image.copy()
+	img1 = cv2.imread('filters/filters/rahmen.png')
+	res1 = cv2.resize(img1,(width, height), interpolation = cv2.INTER_CUBIC)
+	res2 = cv2.resize(newImage, (width-(2*w10), height-(2*h10)-(h10/3)), interpolation = cv2.INTER_CUBIC)
+	blank_image = np.zeros((height, width, 3), np.uint8)
+	blank_image[0:width, 0:height+160] = res1
+	blank_image[(h10+h10/3):height-h10, w10:width-w10] = res2
+	return blank_image
