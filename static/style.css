@@ -1,6 +1,6 @@
 body{
    background-color: #333344;
-   background-image: url(example.JPG);
+   background-image: url(img/background.png);
    background-position: center center;
    background-repeat: no-repeat;
    background-attachment: fixed;
@@ -36,6 +36,8 @@ div.bottombar{
   height:2em;
 
 }
+
+
 
 .buttonstyle{
   opacity:0.8;
@@ -177,6 +179,7 @@ div.bottombar{
 /**Dropdown*/
 
 .onclick-menu-top {
+  pointer-events: auto;
   }
 .onclick-menu-top:focus {
     /* clicking on label should toggle the menu */
@@ -190,6 +193,18 @@ div.bottombar{
     /* don't let pointer-events affect descendant elements */
     pointer-events: auto;
 }
+
+.onclick-menu-top:hover .onclick-menu-content-top {
+    /*  opacity is 1 in opened state (see below) */
+    opacity: auto;
+    visibility: visible;
+
+    /* don't let pointer-events affect descendant elements */
+    pointer-events: auto;
+}
+
+
+
 .onclick-menu-content-top {
 
   position:absolute;
@@ -211,8 +226,16 @@ div.bottombar{
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.5s;
+
+
+
 }
 
+
+.onclick-menu-content-top:focus {
+    /* clicking on label should toggle the menu */
+    pointer-events: none;
+}
 
 
 .onclick-menu-top  ul li{
@@ -289,6 +312,10 @@ div.bottombar{
 }
 .menu-item:hover{
   background-color: #888888;
+}
+.space{
+  visibility: hidden;
+    cursor: auto;
 }
 
 

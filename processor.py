@@ -4,12 +4,19 @@ from filters import filters
 from filters import masks
 
 
+
+
+
+
+
+
 def process_image(image):
 
     #Maskenaufruf erfolgt in detect_faces(image)
-    #image = detect_faces(image)
+    image = detect_faces(image)
 
     #Filteraufruf hier
+    #image = filters.filter_frame(image)
     return image
 
 
@@ -62,6 +69,6 @@ def detect_faces(image):
 
 
             #Maskenaufruf hier
-            image = masks.mask_glasses(image, x,y,w,h, eyeCoordinates[0], eyeCoordinates[1],'Brille2')
+            image = masks.mask_censor_bar(image, x,y,w,h, eyeCoordinates[0], eyeCoordinates[1],'Brille2')
 
     return image

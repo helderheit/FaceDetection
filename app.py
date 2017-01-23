@@ -1,26 +1,44 @@
-from flask import Flask, render_template, Response, redirect, jsonify
+# -*- coding: utf-8 -*-
 
+from flask import Flask, render_template, Response, redirect, jsonify, request
+
+import processor
 from filters import masks
 from filters import filters
 from recorder import VideoCamera
 
-app = Flask(__name__)
+import cv2
+
+app = Flask(__name__, static_url_path = '')
 
 
 filter_list = {}
 mask_list =  {}
 
 
-
+"""Verfügbare Filter als Json zurückgegeben"""
 @app.route('/filters')
 def get_filter():
     return jsonify(filter_list)
-
+"""Verfügbare Masken als Json zurückgegeben"""
 @app.route('/masks')
 def get_masks():
     return jsonify(mask_list)
 
+"""Filter anwenden"""
+@app.route('/filter', methods=['POST'])
+def apply_filter():
+    print request.form['filter']
+    return "Success"
 
+"""Masken anwenden"""
+@app.route('/mask', methods=['POST'])
+def apply_mask():
+    print request.form['mask']
+    return "Success"
+
+
+"""Webseite Zurückgeben"""
 @app.route('/')
 def index():
     return Response(open('static/index.html'))
@@ -30,7 +48,7 @@ def gen(camera):
        frame = camera.get_frame()
        yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
+"""Videostream zurückgeben"""
 @app.route('/image')
 def video_feed():
     return Response(gen(VideoCamera()),
@@ -74,17 +92,21 @@ def initialise_web_app():
                         mask_list[function+':'+parameter] = [function, parameter, name, filename]
 
 
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
   #Maskenparameter initialisieren
+
+
+
   masks.initialise_masks()
+
+  im = cv2.imread('static/img/preview/preview2.png')
+  im = processor.process_image(im)
+  cv2.imwrite('static/img/preview/test.png', im)
+
   #Webapp initialisieren
   initialise_web_app()
-  app.run(port = 3000, host = 'localhost',debug=True)
+
+  app.run(port = 3000, debug=True)
+
+
+
