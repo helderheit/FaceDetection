@@ -8,8 +8,10 @@ class VideoCamera(object):
 
 
     def __init__(self):
-
         self.video = cv2.VideoCapture(1)
+
+        if self.video.isOpened() == False:
+            self.video = cv2.VideoCapture(0)
 
 
     def __del__(self):
