@@ -107,6 +107,3 @@ if __name__ == '__main__':
   initialise_web_app()
 
   app.run(port = 3000, debug=True)
-
-
-

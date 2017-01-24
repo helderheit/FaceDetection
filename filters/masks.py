@@ -91,6 +91,7 @@ Blurs the face
 """
 
 def mask_blur(image, x, y, w, h, eye1, eye2, *args):
+    """, Verpixelt, """
     face = image[y:y+h, x:x+w]
     face = cv2.GaussianBlur(face,(51, 51), 30)
     image[y:y+face.shape[0], x:x+face.shape[1]] = face
@@ -101,6 +102,7 @@ Fügt ein Univerität Regensburg Wasserzeichen hinzu
 """
 
 def mask_watermark(image, x, y, w, h, eye1, eye2, *args):
+    """, Wasserzeichen, """
     watermark = cv2.imread('filters/masks/watermark.jpeg')
 
     watermark = cv2.resize(watermark, (image.shape[1], image.shape[0]))
