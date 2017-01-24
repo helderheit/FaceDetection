@@ -71,3 +71,14 @@ def filter_frame(image):
     blank_image[(h10+h10/3):height-h10, w10:width-w10] = res2
     return blank_image
 
+"""
+Fügt ein Univerität Regensburg Wasserzeichen hinzu
+"""
+
+def filter_watermark(image, *args):
+    """, Wasserzeichen, watermark.png"""
+    watermark = cv2.imread('filters/masks/watermark.jpeg')
+
+    watermark = cv2.resize(watermark, (image.shape[1], image.shape[0]))
+
+    return cv2.addWeighted(image, 0.9, watermark, 0.1, cv2.INTER_AREA)

@@ -99,14 +99,14 @@ if __name__ == '__main__':
 
   masks.initialise_masks()
 
-  im = cv2.imread('static/img/preview/preview2.png')
+  im = cv2.imread('static/img/preview/preview.png')
   im = processor.process_image(im)
   cv2.imwrite('static/img/preview/test.png', im)
 
   #Webapp initialisieren
   initialise_web_app()
 
-  app.run(port = 3000,host = '192.168.2.104', debug=True)
+  app.run(port = 3000,host = 'localhost', debug=True)
 
 
 
