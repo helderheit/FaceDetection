@@ -1,7 +1,5 @@
 
 
-var url = "http://localhost:3000";
-
 //Filter laden
 $.getJSON(url+"/filters",{},function(data){
   var counter = 0;
@@ -51,7 +49,7 @@ $.getJSON(url+"/masks",{},function(data){
     }
 
     $("#masks").append(""+
-      "<div class = \"menu-item\" onclick=\"applyMask(\'"+value[0]+":"+value[1]+"\')\">>"+
+      "<div class = \"menu-item\" onclick=\"applyMask(\'"+value[0]+":"+value[1]+"\')\">"+
       "        <div class = \"menu-image\">"+
               "<img src = \"img/preview/masks/"+value[3]+"\" class = \"preview-image\">"+
             "</div>"+

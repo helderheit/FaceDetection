@@ -1,6 +1,5 @@
 
 
-var url = "http://localhost:3000";
 
 function applyFilter(filterName){
   $.post(url +"/filter", { filter: filterName },function( data ) {

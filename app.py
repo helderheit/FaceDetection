@@ -106,7 +106,7 @@ if __name__ == '__main__':
   #Webapp initialisieren
   initialise_web_app()
 
-  app.run(port = 3000, debug=True)
+  app.run(port = 3000,host = '192.168.2.104', debug=True)
 
 
 

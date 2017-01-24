@@ -47,15 +47,15 @@ div.bottombar{
   padding-bottom: 0.2em;
 
   float:right;
-  background-color: #2AA385;
-  background-image: -webkit-linear-gradient(top,#2AA385,#0A9A76);
-  background-image: -moz-linear-gradient(top,#2AA385,#0A9A76);
-  background-image: -ms-linear-gradient(top,#2AA385,#0A9A76);
-  background-image: -o-linear-gradient(top,#2AA385,#0A9A76);
-  background-image: linear-gradient(top,#2AA385,#0A9A76);
+  background-color: #d0d0d0;
+  background-image: -webkit-linear-gradient(top,#d0d0d0,#cacaca);
+  background-image: -moz-linear-gradient(top,#d0d0d0,#cacaca);
+  background-image: -ms-linear-gradient(top,#d0d0d0,#cacaca);
+  background-image: -o-linear-gradient(top,#d0d0d0,#cacaca);
+  background-image: linear-gradient(top,#d0d0d0,#cacaca);
 
   font-size:1em;
-  border: 1px solid #2AA385;
+  border: 1px solid #d0d0d0;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -106,11 +106,12 @@ div.bottombar{
     pointer-events: auto;
 }
 .onclick-menu-content {
-
+  
   position:absolute;
 	list-style:none;
 	text-align:center;
 	width:18em;
+
 
 
 	margin-left:-15em;
