@@ -1,109 +1,92 @@
 # -*- coding: utf-8 -*-
+import cv2
+from flask import Flask, Response, jsonify, request
 
-from flask import Flask, render_template, Response, redirect, jsonify, request
-
+import monitor
 import processor
+import stream
 from filters import masks
-from filters import filters
 from recorder import VideoCamera
 
-import cv2
-
-app = Flask(__name__, static_url_path = '')
+app = Flask(__name__, static_folder='docs', static_url_path = '')
 
 
-filter_list = {}
-mask_list =  {}
+
 
 
 """Verfügbare Filter als Json zurückgegeben"""
 @app.route('/filters')
 def get_filter():
-    return jsonify(filter_list)
+    return jsonify(stream.filter_list)
 """Verfügbare Masken als Json zurückgegeben"""
 @app.route('/masks')
 def get_masks():
-    return jsonify(mask_list)
+    return jsonify(stream.mask_list)
 
 """Filter anwenden"""
-@app.route('/filter', methods=['POST'])
-def apply_filter():
-    print request.form['filter']
+@app.route('/<streamid>/filter', methods=['POST'])
+def apply_filter(streamid):
+    command =  request.form['filter']
+    stream.find_stream(streamid).set_filter(command)
+
     return "Success"
 
 """Masken anwenden"""
-@app.route('/mask', methods=['POST'])
-def apply_mask():
-    print request.form['mask']
+@app.route('/<streamid>/mask', methods=['POST'])
+def apply_mask(streamid):
+    command = request.form['mask']
+    stream.find_stream(streamid).set_mask(command)
     return "Success"
 
 
 """Webseite Zurückgeben"""
 @app.route('/')
 def index():
-    return Response(open('static/index.html'))
+    return Response(open('docs/index.html'))
 
-def gen(camera):
+def gen(stream):
+    stream.camera.start_stream()
     while True:
-       frame = camera.get_frame()
-       yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+        frame = stream.get_frame()
+        yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
+
 """Videostream zurückgeben"""
-@app.route('/image')
-def video_feed():
-    return Response(gen(VideoCamera()),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
+@app.route('/stream/<streamid>/image')
+def video_feed(streamid):
+    strm = stream.find_stream(streamid)
+    print strm
+
+    return Response(gen(strm),
+                mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 
-def initialise_web_app():
 
-    #Filter und Maskenfunktionen auflisten
-    for function in dir(filters):
-        if 'filter_' in function:
-
-            docstring = getattr(filters, function).__doc__
-            if docstring is not None:
-                lines = docstring.split('\n')
-
-                for line in lines:
-                    line = line.replace('\t', '').replace(' ', '')
-                    if line != '':
-                        parameter = line.split(',')[0].replace(' ', '')
-                        name = line.split(',')[1].replace(' ', '')
-                        filename = line.split(',')[2].replace(' ', '')
-                        filter_list[function + ':' + parameter] = [function, parameter, name, filename]
-
-    for function in dir(masks):
-        if 'mask_' in function:
-
-            docstring = getattr(masks, function).__doc__
-            if docstring is not None:
-                lines = docstring.split('\n')
-
-
-                for line in lines:
-                    line = line.replace('\t','').replace(' ', '')
-                    if line != '':
-
-                        parameter = line.split(',')[0].replace(' ', '')
-                        name = line.split(',')[1].replace(' ', '')
-                        filename = line.split(',')[2].replace(' ', '')
-                        mask_list[function+':'+parameter] = [function, parameter, name, filename]
 
 
 if __name__ == '__main__':
-  #Maskenparameter initialisieren
+    #Maskenparameter initialisieren
 
 
 
-  masks.initialise_masks()
+    masks.initialise_masks()
 
-  im = cv2.imread('static/img/preview/preview.png')
-  im = processor.process_image(im)
-  cv2.imwrite('static/img/preview/test.png', im)
+    #im = cv2.imread('docs/img/preview/preview.png')
+    #im = processor.process_image(im)
+    #cv2.imwrite('docs/img/preview/test.png', im)
 
-  #Webapp initialisieren
-  initialise_web_app()
+    #Webapp initialisieren
+    stream.initialise_web_app()
 
-  app.run(port = 3000,host = 'localhost', debug=True)
+    #Systemüberwachung starten
+    monitor.initialise_monitor(debug = True)
+
+
+    stream.streams.append(stream.Stream('12345','',VideoCamera()))
+    app.run(port = 3000,host = 'localhost', threaded=True, debug=True)
+
+
+
+

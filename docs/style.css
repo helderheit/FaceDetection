@@ -11,6 +11,28 @@ body{
 
 }
 
+
+
+
+a.logolink:visited{
+  text-decoration: none;
+}
+
+a.logolink:hover{
+color: #0A9A76;
+}
+a.logolink{
+    float:left;
+    text-decoration: none;
+    left: 1em;
+
+    top:0.6em;
+  position: relative;
+  color: #d0d0d0;
+  font-size: 1.5em;
+  font-family: 'News Cycle', sans-serif;
+}
+
 div.topbar{
   position: fixed;
   top:0.25em;
@@ -106,7 +128,7 @@ div.bottombar{
     pointer-events: auto;
 }
 .onclick-menu-content {
-  
+
   position:absolute;
 	list-style:none;
 	text-align:center;

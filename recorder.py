@@ -8,10 +8,12 @@ class VideoCamera(object):
 
 
     def __init__(self):
-        self.video = cv2.VideoCapture(1)
+        self.video = None
 
-        if self.video.isOpened() == False:
-            self.video = cv2.VideoCapture(0)
+
+    def start_stream(self):
+        if self.video is None:
+          self.video = cv2.VideoCapture(0)
 
 
     def __del__(self):
@@ -19,8 +21,4 @@ class VideoCamera(object):
 
     def get_frame(self):
         success, image = self.video.read()
-
-        image = processor.process_image(image)
-
-        ret, jpeg = cv2.imencode('.jpg', image, [0])
-        return jpeg.tobytes()
+        return image

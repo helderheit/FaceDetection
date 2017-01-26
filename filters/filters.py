@@ -69,8 +69,7 @@ def filter_country(image, *args):
         result = cv2.addWeighted(image, 0.5, blank_image, 0.5, 0)
         return result
 
-
-def filter_frame(image):
+def filter_frame(image, *args):
     """, Frame, frame.png"""
     height, width = image.shape[:2]
     h10 = height/10
@@ -94,4 +93,14 @@ def filter_watermark(image, *args):
 
     watermark = cv2.resize(watermark, (image.shape[1], image.shape[0]))
 
-    return cv2.addWeighted(image, 0.85, watermark, 0.15, cv2.INTER_AREA)
+    return cv2.addWeighted(image, 0.9, watermark, 0.1, cv2.INTER_AREA)
+
+
+
+def filter_lut(image, *args):
+
+    image = image*(image*0.1)
+
+    return image
+
+
