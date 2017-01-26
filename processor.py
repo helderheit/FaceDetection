@@ -46,13 +46,13 @@ def detect_faces(image, mask_function, mask_args):
     processimage = cv2.resize(image, (0, 0), fx=scale_factor, fy=scale_factor)
     gray = cv2.cvtColor(processimage, cv2.COLOR_BGR2GRAY)
 
-    faces = face_cascade.detectMultiScale(gray, 1.35, 5)
+    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 
     for (x, y, w, h) in faces:
         #cv2.rectangle(image, (x, y), (x + w, y + h), (255, 0, 0), 2)
         roi_gray = gray[y:y + h, x:x + w]
 
-        eyes = eye_cascade.detectMultiScale(roi_gray, 1.35)
+        eyes = eye_cascade.detectMultiScale(roi_gray, 1.3)
 
         number = 0
         eyeCoordinates = []

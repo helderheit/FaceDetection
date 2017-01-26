@@ -93,7 +93,7 @@ def filter_watermark(image, *args):
 
     watermark = cv2.resize(watermark, (image.shape[1], image.shape[0]))
 
-    return cv2.addWeighted(image, 0.9, watermark, 0.1, cv2.INTER_AREA)
+    return cv2.addWeighted(image, 0.85, watermark, 0.15, cv2.INTER_AREA)
 
 
 

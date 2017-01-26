@@ -13,7 +13,7 @@ class VideoCamera(object):
 
     def start_stream(self):
         if self.video is None:
-          self.video = cv2.VideoCapture(0)
+          self.video = cv2.VideoCapture(1)
 
 
     def __del__(self):

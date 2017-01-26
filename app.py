@@ -2,6 +2,7 @@
 import cv2
 from flask import Flask, Response, jsonify, request
 
+from filters import filters
 import monitor
 import processor
 import stream
@@ -73,9 +74,9 @@ if __name__ == '__main__':
 
     masks.initialise_masks()
 
-    #im = cv2.imread('docs/img/preview/preview.png')
-    #im = processor.process_image(im)
-    #cv2.imwrite('docs/img/preview/test.png', im)
+    #im = cv2.imread('docs/img/preview/preview2.png')
+    #im = processor.process_image(im, None, 'france', getattr(masks, 'mask_glasses'), 'Brille')
+    #cv2.imwrite('docs/img/preview/test2.png', im)
 
     #Webapp initialisieren
     stream.initialise_web_app()
