@@ -19,7 +19,7 @@ def process_image(image, filter_function, filter_args, mask_function, mask_args)
     #Filteraufruf hier
     if filter_function is not None:
 
-        image = filter_function(image, mask_args)
+        image = filter_function(image, filter_args)
     return image
 
 

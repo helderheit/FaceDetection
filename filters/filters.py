@@ -21,6 +21,12 @@ Vorschaubildes, durch Komma getrennt. Filter ohne Docstring werden nicht dargest
 import cv2
 import numpy as np
 
+
+#Images die von Anfang an geladen werden
+
+frame_image = cv2.imread('filters/filters/rahmen.png')
+
+
 def filter_gray(image, * args):
     """, Black&White, black-white.png"""
     return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -75,7 +81,7 @@ def filter_frame(image, *args):
     h10 = height/10
     w10 = width/10
     newImage = image.copy()
-    img1 = cv2.imread('filters/filters/rahmen.png')
+    img1 = frame_image
     res1 = cv2.resize(img1,(width, height), interpolation = cv2.INTER_CUBIC)
     res2 = cv2.resize(newImage, (width-(2*w10), height-(2*h10)-(h10/3)), interpolation = cv2.INTER_CUBIC)
     blank_image = np.zeros((height, width, 3), np.uint8)

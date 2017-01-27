@@ -50,7 +50,7 @@ def initialise_masks():
     glasses_conf_file = open('filters/masks/config/glasses.conf', 'r')
     for line in glasses_conf_file:
         params = line.split(',')
-        params[1] = params[1].replace(' ', '')
+        params[1] = cv2.imread('filters/masks/glasses/' +  params[1].replace(' ', ''),-1)
         for i in range(2, 6):
             params[i] = int(params[i])
 
@@ -152,7 +152,7 @@ def mask_glasses(image, x, y, w, h, eye1, eye2, *args):
     # Bildparameter laden
     params = param_glasses[args[0]]
 
-    filename = 'filters/masks/glasses/'+params[0]
+
     glasses_eye_left_x = params[1]
     glasses_eye_left_y = params[2]
     glasses_eye_right_x = params[3]
@@ -160,7 +160,7 @@ def mask_glasses(image, x, y, w, h, eye1, eye2, *args):
 
 
     #Overlay-Bild laden
-    s_img = cv2.imread(filename, -1)
+    s_img = params[0]
 
     #Overlay-Bild skalieren, rotieren undpositionieren
     eye_distance = math.sqrt(math.pow(e2centerx -e1centerx, 2) + math.pow(e2centery - e1centery,2))

@@ -52,6 +52,7 @@ class Stream:
         self.filter = getattr(filters, filtername)
         self.filter_args = filterargs
 
+
     def set_mask(self, mask_id):
         maskname = mask_id.split(':')[0]
         maskargs = mask_id.split(':')[1]
