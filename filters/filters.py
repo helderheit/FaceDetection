@@ -50,6 +50,12 @@ def filter_split(image, *args):
     blank_image[height_2:height, width_2:width] = small
     return blank_image
 
+def filter_sepia(image):
+    """, Sepia, sepia.png"""
+    kernel = np.asmatrix([[0.272, 0.534, 0.131], [0.349, 0.686, 0.168], [0.393, 0.769, 0.189]]) #Kernel-Werte von http://amin-ahmadi.com/2016/03/24/sepia-filter-opencv/
+    image = cv2.transform(image, kernel)
+    return image
+
 def filter_country(image, *args):
     """ger, Germany, germany.png
     fra, France, france.png"""
@@ -108,5 +114,3 @@ def filter_lut(image, *args):
     image = image*(image*0.1)
 
     return image
-
-
