@@ -62,6 +62,16 @@ def video_feed(streamid):
     return Response(gen(strm),
                 mimetype='multipart/x-mixed-replace; boundary=frame')
 
+"""Videostream zurückgeben"""
+@app.route('/stream/<streamid>/download')
+def image_download(streamid):
+    strm = stream.find_stream(streamid)
+    print strm
+
+    return Response(strm.get_frame(),  mimetype='image/jpeg')
+
+
+
 
 
 
