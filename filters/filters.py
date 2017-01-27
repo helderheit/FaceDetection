@@ -57,7 +57,7 @@ def filter_sepia(image, *args):
     return image
 
 def filter_flip(image, *args):
-    """,Kopf stellen , """
+    """,Kopf stellen , flip.png"""
     return cv2.flip(image, flipCode = -1)
 
 def filter_country(image, *args):
