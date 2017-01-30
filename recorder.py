@@ -20,7 +20,13 @@ class VideoCamera(object):
 
         print 'start'
         if self.video is None:
+<<<<<<< HEAD
             self.video = cv2.VideoCapture(self.cam_id)
+=======
+          self.video = cv2.VideoCapture(1)
+          if self.video.isOpened() == False:
+              self.video = cv2.VideoCapture(0)
+>>>>>>> origin/development
 
 
     def __del__(self):

@@ -56,6 +56,10 @@ def filter_sepia(image, *args):
     image = cv2.transform(image, kernel)
     return image
 
+def filter_flip(image, *args):
+    """,Kopf stellen , flip.png"""
+    return cv2.flip(image, flipCode = -1)
+
 def filter_country(image, *args):
     """ger, Germany, germany.png
     fra, France, france.png"""
@@ -94,6 +98,12 @@ def filter_frame(image, *args):
     blank_image[0:width, 0:height+160] = res1
     blank_image[(h10+h10/3):height-h10, w10:width-w10] = res2
     return blank_image
+
+def filter_neu(image, *args):
+	""", Blur, blur.png"""
+	#http://docs.opencv.org/3.1.0/d4/d13/tutorial_py_filtering.html
+	blur = cv2.bilateralFilter(image,9,75,75)
+	return blur
 
 """
 Fügt ein Univerität Regensburg Wasserzeichen hinzu
