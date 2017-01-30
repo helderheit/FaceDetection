@@ -15,12 +15,11 @@
 
         <title>FaceStream</title>
     </head>
-    <body>
+    <body onload="initialise()">
 
+      <div class = "stream"></div>
+      
 
-
-
-        <img src = "/stream/12345/image">
 
 
       <div class = "topbar">
@@ -30,8 +29,13 @@
             FaceStream
         </a>
 
-        <div tabindex="0" class="onclick-menu-top buttonstyle" >
+        <div tabindex="0" class="onclick-menu-top buttonstyle"id =  >
           <img src= "img/icons/camera.png" class = "icon-image" >
+          <ul class="onclick-menu-content-top" id = "cams">
+
+
+          </ul>
+
         </div>
 
         <button class = "buttonstyle" onclick="downloadImage()">
@@ -71,6 +75,10 @@
 
           </ul>
         </div>
+
+        <button class = "buttonstyle left" onclick="fullscreen()">
+          <img src = "img/icons/fullscreen.png" class = "icon-image">
+        </button>
 
 
 

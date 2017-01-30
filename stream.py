@@ -30,6 +30,7 @@ class Stream:
         self.mask = None
         self.filter_args = None
         self.mask_args = None
+        self.loading_image = cv2.imread('loading.png')
 
 
     def get_frame(self):
@@ -42,6 +43,8 @@ class Stream:
 
         image = processor.process_image(image, self.filter,self.filter_args, self.mask, self.mask_args)
 
+        if image is None:
+            image = self.loading_image
         ret, jpeg = cv2.imencode('.jpg', image, [int(cv2.IMWRITE_JPEG_QUALITY), 50])
         return jpeg.tobytes()
 
@@ -67,6 +70,13 @@ def find_stream(id):
             return stream
     return None
 
+def find_stream_index(id):
+    index = 0
+    for stream in streams:
+        if id == stream.id:
+            return index
+        index += index
+    return None
 
 def initialise_web_app():
 

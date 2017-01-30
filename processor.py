@@ -14,7 +14,10 @@ def process_image(image, filter_function, filter_args, mask_function, mask_args)
 
     #Maskenaufruf erfolgt in detect_faces(image, mask_function, mask_args)
     if mask_function is not None:
-        image = detect_faces(image, mask_function, mask_args)
+        try:
+            image = detect_faces(image, mask_function, mask_args)
+        except Exception:
+            print 'Bounds!'
 
     #Filteraufruf hier
     if filter_function is not None:

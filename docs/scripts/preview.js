@@ -72,3 +72,55 @@ $.getJSON(url+"/masks",{},function(data){
 
 
 });
+
+
+//Kameras laden
+$.getJSON(url+"/12345/cams",{},function(data){
+
+
+
+  $.each(data, function(key, value) {
+
+      $("#cams").append("<li><a onClick=\"changeCam("+value+")\">"+key+"</a></li>");
+
+
+});
+
+
+  });
+
+//Stream Starten
+
+function initialise(){
+
+
+
+  $('.stream').css('background-image','url(/stream/12345/image)');
+    $('body').css('background-image','none');
+
+}
+
+
+//Fullscreen
+
+isFullscreen = true;
+
+function fullscreen(){
+  if(isFullscreen){
+
+
+
+          $('.stream').css('background-image','url(/stream/12345/image)');
+
+                $('.stream').css('background-size','contain');
+
+  }else {
+
+    $('.stream').css('background-image','url(/stream/12345/image)');
+      $('.stream').css('background-size','cover');
+
+
+  }
+  isFullscreen = !isFullscreen;
+
+}
