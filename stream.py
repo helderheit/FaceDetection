@@ -51,7 +51,7 @@ class Stream:
     def set_filter(self, filter_id):
         filtername = filter_id.split(':')[0]
         filterargs = filter_id.split(':')[1]
-        if self.filter == getattr(filters, filtername):
+        if self.filter == getattr(filters, filtername) and  filterargs == self.filter_args:
             self.filter = None
             self.filter_args = None
         else:
@@ -62,7 +62,7 @@ class Stream:
     def set_mask(self, mask_id):
         maskname = mask_id.split(':')[0]
         maskargs = mask_id.split(':')[1]
-        if self.mask == getattr(masks, maskname):
+        if self.mask == getattr(masks, maskname) and maskargs == self.mask_args:
             self.mask = None
             self.mask_args = None
         else:

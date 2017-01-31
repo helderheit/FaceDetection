@@ -136,6 +136,8 @@ def mask_glasses(image, x, y, w, h, eye1, eye2, *args):
     """Brille, Sunny, simple.png
     Brille2, Brille, glasses2.png
     gasmask, Nuklear, gasmask.png
+    hat, Hut, hat.png
+    carneval, Carneval, carneval.png
     """
     centerx = x + w / 2
     centery = y + h / 2
