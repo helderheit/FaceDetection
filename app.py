@@ -14,9 +14,9 @@ app = Flask(__name__, static_folder='docs', static_url_path = '')
 
 
 """Cameras zurückgeben"""
-@app.route('/<streamid>/cams')
+@app.route('/stream/<streamid>/cams')
 def get_cameras(streamid):
-    cams = {'cam1': '0', 'cam2': '1', 'cam3': '2', 'cam4': '4'}
+    cams = {'cam1': '0', 'cam2': '1', 'cam3': '2', 'cam4': '3'}
 
     return jsonify(cams)
 
@@ -33,9 +33,26 @@ def get_filter():
 def get_masks():
     return jsonify(stream.mask_list)
 
+@app.route('/stream/<streamid>/filteractive')
+def get_active_filter(streamid):
+    strm = stream.find_stream(streamid)
+    if strm.filter is not None:
+
+        return strm.filter.__name__ + '-' + strm.filter_args
+    else:
+        return ''
+
+@app.route('/stream/<streamid>/maskactive')
+def get_active_mask(streamid):
+    strm = stream.find_stream(streamid)
+    if strm.mask is not None:
+
+        return strm.mask.__name__ + '-' + strm.mask_args
+    else:
+        return ''
 
 """Kamera wechseln"""
-@app.route('/<streamid>/changecam', methods=['POST'])
+@app.route('/stream/<streamid>/changecam', methods=['POST'])
 def change_cam(streamid):
     command =  request.form['id']
     print command
@@ -53,7 +70,7 @@ def change_cam(streamid):
     return "Success"
 
 """Filter anwenden"""
-@app.route('/<streamid>/filter', methods=['POST'])
+@app.route('/stream/<streamid>/filter', methods=['POST'])
 def apply_filter(streamid):
     command =  request.form['filter']
     stream.find_stream(streamid).set_filter(command)
@@ -61,7 +78,7 @@ def apply_filter(streamid):
     return "Success"
 
 """Masken anwenden"""
-@app.route('/<streamid>/mask', methods=['POST'])
+@app.route('/stream/<streamid>/mask', methods=['POST'])
 def apply_mask(streamid):
     command = request.form['mask']
 

@@ -359,6 +359,11 @@ button.left{
 .menu-item:hover{
   background-color: #888888;
 }
+
+.menu-item-selected{
+  background-color: #0A9A76;
+}
+
 .space{
   visibility: hidden;
     cursor: auto;

@@ -12,7 +12,7 @@ $.getJSON(url+"/filters",{},function(data){
     }
 
     $("#filters").append(""+
-      "<div class = \"menu-item\" onclick=\"applyFilter(\'"+value[0]+":"+value[1]+"\')\">"+
+      "<div class = \"menu-item\" id = \""+value[0]+"-"+value[1]+"\" onclick=\"applyFilter(\'"+value[0]+":"+value[1]+"\')\">"+
       "        <div class = \"menu-image\">"+
               "<img src = \"img/preview/filters/"+value[3]+"\" class = \"preview-image\">"+
             "</div>"+
@@ -32,6 +32,12 @@ $.getJSON(url+"/filters",{},function(data){
 
   $("#filters").append(" </div></li> <li><a>Filter</a></li>");
 
+  //Aktiven Filter Laden
+  $.get(url+"/stream/12345/filteractive",function(data){
+    var lastFilter = data;
+    console.log(lastFilter);
+      $("#"+lastFilter).addClass("menu-item-selected");
+    });
 
 
 });
@@ -49,7 +55,7 @@ $.getJSON(url+"/masks",{},function(data){
     }
 
     $("#masks").append(""+
-      "<div class = \"menu-item\" onclick=\"applyMask(\'"+value[0]+":"+value[1]+"\')\">"+
+      "<div class = \"menu-item\"  id = \""+value[0]+"-"+value[1]+"\" onclick=\"applyMask(\'"+value[0]+":"+value[1]+"\')\">"+
       "        <div class = \"menu-image\">"+
               "<img src = \"img/preview/masks/"+value[3]+"\" class = \"preview-image\">"+
             "</div>"+
@@ -69,13 +75,19 @@ $.getJSON(url+"/masks",{},function(data){
 
   $("#masks").append(" </div></li> <li><a>Masken</a></li>");
 
+  //Aktive Maske laden
+  $.get(url+"/stream/12345/maskactive",function(data){
+    var lastMask = data;
+    console.log(lastMask);
+      $("#"+lastMask).addClass("menu-item-selected");
+    });
 
 
 });
 
 
 //Kameras laden
-$.getJSON(url+"/12345/cams",{},function(data){
+$.getJSON(url+"/stream/12345/cams",{},function(data){
 
 
 
@@ -97,6 +109,7 @@ function initialise(){
 
   $('.stream').css('background-image','url(/stream/12345/image)');
     $('body').css('background-image','none');
+
 
 }
 

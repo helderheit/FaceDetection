@@ -51,17 +51,23 @@ class Stream:
     def set_filter(self, filter_id):
         filtername = filter_id.split(':')[0]
         filterargs = filter_id.split(':')[1]
-
-        self.filter = getattr(filters, filtername)
-        self.filter_args = filterargs
+        if self.filter == getattr(filters, filtername):
+            self.filter = None
+            self.filter_args = None
+        else:
+            self.filter = getattr(filters, filtername)
+            self.filter_args = filterargs
 
 
     def set_mask(self, mask_id):
         maskname = mask_id.split(':')[0]
         maskargs = mask_id.split(':')[1]
-
-        self.mask = getattr(masks, maskname)
-        self.mask_args = maskargs
+        if self.mask == getattr(masks, maskname):
+            self.mask = None
+            self.mask_args = None
+        else:
+            self.mask = getattr(masks, maskname)
+            self.mask_args = maskargs
 
 
 def find_stream(id):
