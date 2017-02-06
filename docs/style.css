@@ -11,6 +11,36 @@ body{
 
 }
 
+.content{
+  position:absolute;
+  width:40%;
+  top: 35%;
+  left:40%;
+  
+  font-size: 1.2em;
+
+}
+
+.downloadtext{
+  margin: 2em;
+    color: #d0d0d0;
+}
+
+.downloadlink{
+  font-family: 'News Cycle', sans-serif;
+  font-size: 1.1em;
+  color: #0A9A76;
+  margin:1em 0em;;
+}
+.downloadlink:hover{
+    color: #c0c0c0;
+}
+
+.downloadimage{
+  float: left;
+  width: 8em;
+  margin: 1em;
+}
 
 .stream{
   position: absolute;

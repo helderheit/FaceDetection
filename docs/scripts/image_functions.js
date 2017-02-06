@@ -19,29 +19,34 @@ function applyFilter(filterName){
 
 
 function applyMask(maskName){
-  var id = "#"+maskName.replace(':','-');
-  $.get(url+"/stream/12345/maskactive",function(data){
-    var lastMask = data;
-    console.log(lastMask);
 
-    $.post(url +"/stream/12345/mask", { mask: maskName },function( data ) {
-      $(id).addClass("menu-item-selected");
-      $("#"+lastMask).removeClass("menu-item-selected");
-      console.log(data);
+    var id = "#"+maskName.replace(':','-');
+    $.get(url+"/stream/12345/maskactive",function(data){
+      var lastMask = data;
+      console.log(lastMask);
+
+      $.post(url +"/stream/12345/mask", { mask: maskName },function( data ) {
+        $(id).addClass("menu-item-selected");
+        $("#"+lastMask).removeClass("menu-item-selected");
+        console.log(data);
+      });
     });
-  });
+  
 }
 
 
 function changeCam(camId){
-  console.log("changecam");
-  $.post(url +"/stream/12345/changecam", { id: camId },function( data ) {
-  console.log(data);
-  });
+
+    console.log("changecam");
+    $.post(url +"/stream/12345/changecam", { id: camId },function( data ) {
+    console.log(data);
+    });
+
 
 }
 
 function quit(){
+
   $.post(url +"/stream/12345/quit", {},function( data ) {
   console.log(data);
   });

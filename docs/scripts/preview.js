@@ -1,5 +1,6 @@
 
 
+
 //Filter laden
 $.getJSON(url+"/filters",{},function(data){
   var counter = 0;
@@ -105,10 +106,19 @@ $.getJSON(url+"/stream/12345/cams",{},function(data){
 
 function initialise(){
 
-
-
-  $('.stream').css('background-image','url(/stream/12345/image)');
+  if(!streamer){
+    console.log('hide');
+    $("#buttonmasks").hide();
+    $("#buttonfilters").hide();
+    $("#buttonfullscreen").hide();
+    $("#buttoncam").hide();
+    $("#buttonquit").hide();
+    $("#buttondownload").hide();
+  }else{
+    $('#content').hide();
+    $('.stream').css('background-image','url(/stream/12345/image)');
     $('body').css('background-image','none');
+  }
 
 
 }

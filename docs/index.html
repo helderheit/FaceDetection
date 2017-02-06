@@ -29,11 +29,11 @@
             FaceStream
         </a>
 
-        <button class = "buttonstyle" onclick="quit()">
+        <button class = "buttonstyle" onclick="quit()" id = "buttonquit">
           <img src = "img/icons/quit.png" class = "icon-image">
         </button>
 
-        <div tabindex="0" class="onclick-menu-top buttonstyle"id =  >
+        <div tabindex="0" class="onclick-menu-top buttonstyle"id ="buttoncam" >
           <img src= "img/icons/camera.png" class = "icon-image" >
           <ul class="onclick-menu-content-top" id = "cams">
 
@@ -42,7 +42,7 @@
 
         </div>
 
-        <button class = "buttonstyle" onclick="downloadImage()">
+        <button class = "buttonstyle" onclick="downloadImage()" id = "buttondownload">
           <img src = "img/icons/snapshot.png" class = "icon-image">
         </button>
 
@@ -64,10 +64,21 @@
         </div>
         -->
 
+
+
       </div>
 
+      <div class = "content" id ="content">
+          <a href = "https://github.com/helderheit/FaceDetection/archive/master.zip"><img src = "img/icons/download-package.png" class = "downloadimage"></a>
+          <div class = "downloadtext">
+            Videostream mit Gesichtserkennung <br>
+          <a href = "https://github.com/helderheit/FaceDetection/archive/master.zip" class = "downloadlink">Herunterladen</a>
+          </div>
+      </div>
+
+
       <div class = "bottombar">
-        <div tabindex="0" class="onclick-menu buttonstyle" >
+        <div tabindex="0" class="onclick-menu buttonstyle"  id="buttonfilters">
           <img src = "img/icons/filters.png" class = "icon-image">
           <ul class="onclick-menu-content" id = "filters">
 
@@ -75,14 +86,14 @@
           </ul>
         </div>
 
-        <div tabindex="1" class="onclick-menu buttonstyle">
+        <div tabindex="1" class="onclick-menu buttonstyle" id="buttonmasks">
           <img src = "img/icons/masks.png" class = "icon-image">
           <ul class="onclick-menu-content"  id = "masks">
 
           </ul>
         </div>
 
-        <button class = "buttonstyle left" onclick="fullscreen()">
+        <button class = "buttonstyle left" onclick="fullscreen()"  id="buttonfullscreen">
           <img src = "img/icons/fullscreen.png" class = "icon-image">
         </button>
 
