@@ -2,14 +2,11 @@
 import webbrowser
 
 import cv2
-import time
 
-import sys
 from flask import Flask, Response, jsonify, request
 
 from filters import filters
-import requests
-import monitor
+
 import processor
 import stream
 from filters import masks
