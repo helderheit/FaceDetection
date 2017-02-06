@@ -45,7 +45,7 @@ class Stream:
 
         if image is None:
             image = self.loading_image
-        ret, jpeg = cv2.imencode('.jpg', image, [int(cv2.IMWRITE_JPEG_QUALITY), 50])
+        ret, jpeg = cv2.imencode('.jpg', image, [int(cv2.IMWRITE_JPEG_QUALITY), 100])
         return jpeg.tobytes()
 
     def set_filter(self, filter_id):
