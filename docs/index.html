@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <link rel="shortcut icon" href="img/icons/logo.png" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=News+Cycle" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type= "text/javascript" src = "scripts/routing.js"></script>
+        <script type= "text/javascript" src = "scripts/preview.js"></script>
+        <script type= "text/javascript" src = "scripts/image_functions.js"></script>
+        <script type= "text/javascript" src = "scripts/downloader.js"></script>
+
+
+
+       <link rel="stylesheet" href="style.css">
+
+        <title>FaceStream</title>
+    </head>
+    <body onload="initialise()">
+
+      <div class = "stream"></div>
+
+
+
+
+      <div class = "topbar">
+
+        <a href = "" class = "logolink">
+
+            FaceStream
+        </a>
+
+        <button class = "buttonstyle" onclick="quit()">
+          <img src = "img/icons/quit.png" class = "icon-image">
+        </button>
+
+        <div tabindex="0" class="onclick-menu-top buttonstyle"id =  >
+          <img src= "img/icons/camera.png" class = "icon-image" >
+          <ul class="onclick-menu-content-top" id = "cams">
+
+
+          </ul>
+
+        </div>
+
+        <button class = "buttonstyle" onclick="downloadImage()">
+          <img src = "img/icons/snapshot.png" class = "icon-image">
+        </button>
+
+
+        <!--
+        <div tabindex="0" class="onclick-menu-top buttonstyle">
+          <img src = "img/icons/connect.png" class = "icon-image">
+          <ul class="onclick-menu-content-top">
+              <li>
+                  <a>Connect</a>
+              </li>
+              <li>
+
+                <input type= "text" class = "text-input">
+
+              </li>
+          </ul>
+
+        </div>
+        -->
+
+      </div>
+
+      <div class = "bottombar">
+        <div tabindex="0" class="onclick-menu buttonstyle" >
+          <img src = "img/icons/filters.png" class = "icon-image">
+          <ul class="onclick-menu-content" id = "filters">
+
+
+          </ul>
+        </div>
+
+        <div tabindex="1" class="onclick-menu buttonstyle">
+          <img src = "img/icons/masks.png" class = "icon-image">
+          <ul class="onclick-menu-content"  id = "masks">
+
+          </ul>
+        </div>
+
+        <button class = "buttonstyle left" onclick="fullscreen()">
+          <img src = "img/icons/fullscreen.png" class = "icon-image">
+        </button>
+
+
+
+
+      </div>
+
+    </body>
+
+
+
+</html>
