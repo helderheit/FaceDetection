@@ -79,13 +79,24 @@ div.bottombar{
 }
 
 
+button{
+ height: 2.5em;
+ width: 4em;
+ padding-bottom: 0.5em;
+ !important padding: 0;
+ text-align:center;
+ vertical-align: middle;
+
+}
 
 .buttonstyle{
   opacity:0.8;
   margin: 1em 0.5em;
   padding:1.5em 1em;
-  padding-top: 0.2em;
+  padding-top: 0.15em;
   padding-bottom: 0.2em;
+  padding-left: 0.9em;;
+
 
   float:right;
   background-color: #d0d0d0;
@@ -135,6 +146,7 @@ button.left{
 }
 
 .onclick-menu {
+
   }
 
 
@@ -151,7 +163,7 @@ button.left{
     pointer-events: auto;
 }
 .onclick-menu-content {
-
+  font-size: 0.9em;
   position:absolute;
 	list-style:none;
 	text-align:center;
@@ -293,7 +305,7 @@ button.left{
 
 
 .onclick-menu-top ul li:hover{
-
+  background-color:#0A9A76;
 }
 
 .onclick-menu-top ul li:first-child{
@@ -302,6 +314,11 @@ button.left{
   position:relative;
 
 }
+
+.onclick-menu-top ul li:first-child:hover{
+  background-color:#0A9A76;
+}
+
 
 .onclick-menu-top ul li:first-child::before{ /* the pointer tip */
 

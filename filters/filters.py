@@ -117,10 +117,43 @@ def filter_watermark(image, *args):
 
     return cv2.addWeighted(image, 0.85, watermark, 0.15, cv2.INTER_AREA)
 
+def filter_lines(image, *args):
+    """,Lines, lines.png"""
+    scale = 1
+    delta = 0
+    ddepth = cv2.CV_16S
+
+    image = cv2.GaussianBlur(image, (3,3), 0)
+
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+    # Teile aus http://docs.opencv.org/2.4/doc/tutorials/imgproc/imgtrans/sobel_derivatives/sobel_derivatives.html
+
+
+    # Gradient-X
+    grad_x = cv2.Sobel(gray, ddepth, 1, 0, ksize=3, scale=scale, delta=delta, borderType=cv2.BORDER_DEFAULT)
+    # grad_x = cv2.Scharr(gray,ddepth,1,0)
+
+    # Gradient-Y
+    grad_y = cv2.Sobel(gray, ddepth, 0, 1, ksize=3, scale=scale, delta=delta, borderType=cv2.BORDER_DEFAULT)
+    # grad_y = cv2.Scharr(gray,ddepth,0,1)
+
+    abs_grad_x = cv2.convertScaleAbs(grad_x)  # converting back to uint8
+    abs_grad_y = cv2.convertScaleAbs(grad_y)
+
+    dst = cv2.addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0)
+    # dst = cv2.add(abs_grad_x,abs_grad_y)
+
+    blur = cv2.GaussianBlur(dst, (3, 3), 0)
+    thresh1, dst = cv2.threshold(blur, 100, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+
+    blur = cv2.GaussianBlur(dst, (5, 5), 0)
+
+    return blur
 
 
 def filter_lut(image, *args):
-
-    image = image*(image*0.1)
+    """, Contrast, lut.png"""
+    image = image*(image*0.01) - 100
 
     return image

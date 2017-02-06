@@ -40,3 +40,10 @@ function changeCam(camId){
   });
 
 }
+
+function quit(){
+  $.post(url +"/stream/12345/quit", {},function( data ) {
+  console.log(data);
+  });
+
+  }
