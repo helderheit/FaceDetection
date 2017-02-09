@@ -12,3 +12,7 @@ Sollte die Webcam nicht automatisch gefunden werden und/oder die Auswahl der Web
 nicht funktionieren, kann die Webcam auch fest im Code angegeben werden. Siehe dazu der Kommentar in app.py
 im Bereich if __name__ == '__main__'.
 
+
+Link zu Downloadseite
+https://helderheit.github.io/FaceDetection/
+

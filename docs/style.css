@@ -11,7 +11,9 @@ body{
 
 }
 
-
+.small{
+  font-size: 0.8em;
+}
 
 
 .content{
@@ -31,7 +33,7 @@ body{
 
 .downloadlink{
   font-family: 'News Cycle', sans-serif;
-  font-size: 1.1em;
+
   color: #0A9A76;
   margin:1em 0em;;
 }
