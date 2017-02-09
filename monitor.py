@@ -5,14 +5,12 @@
     Dieses Modul enthält Funktionen, die das System überwachen.
 
 """
-import psutil
-import threading
 
 import threading
-from collections import deque
 import time
-import psutil
+from collections import deque
 
+import psutil
 
 
 # http://stackoverflow.com/questions/21866951/get-upload-download-kbps-speed

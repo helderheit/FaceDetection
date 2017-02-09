@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
+"""
+Modul Processor
+
+
+Dieses Modul enthält die Bilderkennung und wendet die Filter und Masken an
+"""
+
 import cv2
-from filters import filters
-from filters import masks
-
-
-
-
-
-
 
 
 def process_image(image, filter_function, filter_args, mask_function, mask_args):
@@ -33,11 +32,10 @@ Paramenter OPenCV Bild image: das Rohbild
 
 Rückgabe OpenCV Bild mit angewendeten Masken
 
+
+Die Methode basiert auf dem Code von http://docs.opencv.org/trunk/d7/d8b/tutorial_py_face_detection.html
+
 """
-
-
-
-
 def detect_faces(image, mask_function, mask_args):
     face_cascade = cv2.CascadeClassifier(
         'haarcascades/haarcascade_frontalface_default.xml')

@@ -8,7 +8,6 @@ Diese Modul verwaltet verschiedene Streams
 import cv2
 
 import processor
-import recorder
 from filters import masks, filters
 
 

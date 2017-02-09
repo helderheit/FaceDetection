@@ -33,7 +33,6 @@ Vorschaubildes, durch Komma getrennt. Filter ohne Docstring werden nicht dargest
 import math
 
 import cv2
-import numpy as np
 
 """
     Parameters
@@ -44,8 +43,6 @@ param_glasses = {}
 """
     Parameter initialisieren
 """
-
-
 def initialise_masks():
     glasses_conf_file = open('filters/masks/config/glasses.conf', 'r')
     for line in glasses_conf_file:
@@ -63,8 +60,6 @@ Rahmen um Gesicht und Augen
 Augenmittelpunkte markiert
 
 """
-
-
 def mask_debug(image, x, y, w, h, eye1, eye2, *args):
     """, Debug, debug.png"""
     cv2.rectangle(image, (x, y), (x + w, y + h), (255, 0, 0), 2)
@@ -89,7 +84,6 @@ def mask_debug(image, x, y, w, h, eye1, eye2, *args):
 """
 Blurs the face
 """
-
 def mask_blur(image, x, y, w, h, eye1, eye2, *args):
     """, Verpixelt, blur.png"""
     face = image[y:y+h, x:x+w]
@@ -130,8 +124,6 @@ def mask_censor_bar(image, x, y, w, h, eye1, eye2, *args):
 Brillen
 
 """
-
-
 def mask_glasses(image, x, y, w, h, eye1, eye2, *args):
     """Brille, Sunny, simple.png
     Brille2, Brille, glasses2.png

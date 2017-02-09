@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
-import cv2
+"""
+Modul Recorder
 
-import processor
+Dieses Modul ist für den Webcamzugriff zuständig
+Es basiert auf dem Code von http://www.chioka.in/python-live-video-streaming-example/
+"""
+import cv2
 
 
 class VideoCamera(object):
